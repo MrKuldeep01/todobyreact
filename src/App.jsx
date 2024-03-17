@@ -25,16 +25,27 @@ function App() {
       
     }
   }
-  let renderTask = arr.map((elm)=>{
-       return ( <div className="task">
-        <div className="tasktext">
-          <span className="titletext">{elm.title}</span>
-          <p className="desctext">{elm.desc}</p>
+  function deleteHandeler(i, index) {
+    let obj = parseInt(i.target.parentNode.parentNode.getAttribute('data-key'));
+    if (obj === index) {
+      let newArr = [...arr]; // Make a copy of the array
+      newArr.splice(index, 1); // Remove the element at the specified index
+      setArr(newArr); // Update the state with the new array
+    }
+  }
+  
+  let renderTask = arr.map((elm,index)=>{
+       return ( 
+       <div className="task" title="Task bar" data-key= {index} key= {index}>
+        <div className="tasktext" >
+          <span className="titletext" title="task heading">{elm.title}</span>
+          <p className="desctext" title="task description">{elm.desc}</p>
         </div>
         <span
           className="checkbox"
-        >
-          <i className="ri-checkbox-blank-line no" onClick={(e) => {
+        > 
+        <i className="ri-subtract-line deletebtn" title="delete task" onClick={(i)=>{deleteHandeler(i,index)}}></i>
+          <i className="ri-checkbox-blank-line no" title="isDone" onClick={(e) => {
             if (e.target.classList.contains("no")) {
               e.target.classList.remove(
                 "ri-checkbox-blank-line",

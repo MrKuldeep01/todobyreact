@@ -118,6 +118,7 @@ button {
   backdrop-filter: blur(2px);
 }
 .task{
+  cursor: pointer;
   width:40%;
   /* height: 4.5rem; */
   padding: .5rem .8rem;
@@ -160,6 +161,7 @@ button {
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   padding: .2rem .5rem;
 }
+
 .checkbox{
   cursor: pointer;
   font-size: 2rem;
